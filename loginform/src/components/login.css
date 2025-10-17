@@ -1,0 +1,76 @@
+/* Centers everything perfectly on screen */
+.container {
+  display: flex;                  /* enables flexbox */
+  justify-content: center;        /* centers horizontally */
+  align-items: center;            /* centers vertically */
+  min-height: 100vh;              /* takes full screen height */
+  background-color: aqua;         /* background color */
+}
+
+/* The card-like box */
+.radius {
+  width: 350px;
+  padding: 30px;                  /* space inside the box */
+  background-color: white;        /* gives a card look */
+  border: 2px dashed black;       /* keeps your border style */
+  border-radius: 15px;            /* rounds the corners */
+  box-shadow: 0 0 15px rgba(0,0,0,0.2); /* soft shadow */
+  display: flex;
+  flex-direction: column;         /* stack items vertically */
+  gap: 20px;                      /* space between sections */
+}
+
+/* Each input row (icon + input) */
+.inputs div {
+  display: flex;                  /* keeps icon & input in one line */
+  align-items: center;            /* vertically align icon & text */
+  gap: 10px;                      /* small space between icon and input */
+}
+
+/* Input styling */
+input {
+  flex: 1;                        /* input takes remaining space */
+  height: 35px;
+  padding: 5px 10px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  font-size: 14px;
+  outline: none;                  /* removes blue outline */
+  transition: 0.2s;
+}
+
+/* When input is focused (clicked) */
+input:focus {
+  border-color: rgb(4, 106, 165);
+  box-shadow: 0 0 4px rgba(4,106,165,0.6);
+}
+
+/* Icon styling */
+img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Buttons */
+button {
+  background-color: rgb(4, 106, 165);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  height: 35px;
+  width: 100%;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Button hover effect */
+button:hover {
+  background-color: rgb(3, 80, 125);
+}
+
+/* To give some space between login and signup buttons */
+.Lbtn,
+.Sbtn {
+  margin-top: 10px;
+}
