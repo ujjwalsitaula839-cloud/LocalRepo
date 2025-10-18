@@ -8,7 +8,7 @@ import "./login.css";
 
 
 function Login(){
-  const[action,setAction] = useState("login")
+  const[action,setAction] = useState("Signup")
 
 
   
@@ -16,10 +16,11 @@ function Login(){
     <div className = "container">
       <div className="radius">
         <div className="inputs">
-          <div className="name">
+          {action ==="Signup" &&(
+          <div className="name"> 
             <img src={UserIcon} alt="img"/>
             <input type="text" placeholder="your name"/>
-          </div>
+          </div>)}
           <div className="email">
             <img src={Email} alt ="email"></img>
             <input type="email" placeholder="your email"></input>
@@ -30,23 +31,26 @@ function Login(){
             
           </div>
           <div className="forgot">
-            <button
+            {action==="Signup" ? <div></div> : <button
         style={{ background: "none", border: "none", color: "blue", cursor: "pointer", marginTop: "10px" }}
       >
         Forgot Password?
-      </button>
+      </button>}
           </div>
-          <div> 
-            <div className="Lbtn">
-            <button>Login</button>
+        <div className="buttons" >
+          <button onClick={()=>setAction("Login")} className={`submit ${action==="Login" ? "purple" : "gray"}`}> 
+           
+              
+            Login
 
-          </div>
+           </button>
           
-          <div className="Sbtn">
-            <button>Signup</button>
-          </div>
-          </div>
+          <button onClick={()=>setAction("Signup")} className={`submit ${action === "Signup" ? "purple" : "gray"}`}>
+           
+             Signup
           
+          </button>
+        </div>
 
         </div>
       </div>

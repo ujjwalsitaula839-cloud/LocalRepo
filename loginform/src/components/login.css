@@ -52,25 +52,25 @@ img {
 }
 
 /* Buttons */
-button {
-  background-color: rgb(4, 106, 165);
-  color: white;
-  border: none;
-  border-radius: 5px;
-  height: 35px;
-  width: 100%;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-/* Button hover effect */
-button:hover {
-  background-color: rgb(3, 80, 125);
-}
-
-/* To give some space between login and signup buttons */
-.Lbtn,
-.Sbtn {
+/* The container for both buttons */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
   margin-top: 10px;
 }
+
+.submit {
+  flex: 1;
+  border: none;
+  padding: 12px 0;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  color:blue;
+  transition: all 0.3s ease;
+}
+
+
+
