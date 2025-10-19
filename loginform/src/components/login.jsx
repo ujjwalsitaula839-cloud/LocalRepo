@@ -25,6 +25,7 @@ function Login(){
   
   return(
     <div className = "container">
+      <h1> Login & Signup form </h1>
       <div className="radius">
         <div className="inputs">
           {action ==="Signup" &&(

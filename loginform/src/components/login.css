@@ -71,6 +71,17 @@ img {
   color:blue;
   transition: all 0.3s ease;
 }
+.container h1{
+ 
+  position: absolute;
+  top: 250px; 
+  left: 50%;
+  transform: translateX(-50%);
+  color:silver;
+  opacity:.5;
+}
 
-
-
+.container :hover{
+  cursor:pointer;
+  color:red;
+}
