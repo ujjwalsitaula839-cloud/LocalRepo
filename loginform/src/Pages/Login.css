@@ -74,7 +74,7 @@ img {
 .container h1{
  
   position: absolute;
-  top: 250px; 
+  top: 210px; 
   left: 50%;
   transform: translateX(-50%);
   color:silver;

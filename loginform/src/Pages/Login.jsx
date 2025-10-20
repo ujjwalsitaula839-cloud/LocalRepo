@@ -3,7 +3,7 @@ import Email from "../assets/email_icon.webp";
 import Password from"../assets/password_icon.webp";
 import React, { useState } from 'react';
 
-import "./login.css";
+import "./Login.css";
 
 
 
