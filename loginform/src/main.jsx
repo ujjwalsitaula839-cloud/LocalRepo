@@ -5,9 +5,9 @@ import Login from "./Pages/Login.jsx";
 import Homepage from "./Pages/Homepage.jsx"
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    
     <BrowserRouter>
       <Routes>
+        
         <Route path="/Homepage" element={<Homepage />} />
         <Route path="/" element={<Login />} />
       </Routes>

@@ -1,0 +1,23 @@
+.navbar{
+  background-color:#1e1e1e;
+  color:white;
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  padding: 15px 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  position:sticky;
+  top:0;
+  z-index:1000;
+  
+}
+.logo{
+  font-size:1rem;
+  font-weight:bold;
+  color:#00bcd4;
+  cursor:pointer;
+  transition:color 0.3s ease;
+}
+.logo :hover{
+  color:red;
+}
