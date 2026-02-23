@@ -1,16 +1,104 @@
-# React + Vite
+# 🔐 TaskApp — Full-Stack Login & Auth System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack authentication app built with **React + Vite** (frontend) and **FastAPI + SQLite** (backend). Features include user registration, login, and a complete password reset flow via email.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tech Stack
 
-## React Compiler
+| Layer | Technology |
+|---|---|
+| Frontend | React, Vite, CSS |
+| Backend | FastAPI, Python |
+| Database | SQLite |
+| Auth | JWT tokens |
+| Email | Gmail SMTP |
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## ⚙️ Setup & Installation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 1. Clone the Repository
+```bash
+git clone https://github.com/ujjwalsitaula839-cloud/LocalRepo.git
+cd LocalRepo/loginform
+```
+
+### 2. Frontend Setup
+```bash
+npm install
+```
+
+### 3. Backend Setup
+```bash
+cd backend
+python -m venv venv
+
+# Activate virtual environment
+# Windows:
+.\venv\Scripts\Activate
+# Mac/Linux:
+source venv/bin/activate
+
+pip install -r requirements.txt
+```
+
+### 4. Configure Environment Variables
+The backend requires a `.env` file for email credentials.
+
+```bash
+# Copy the example file
+copy backend\.env.example backend\.env   # Windows
+cp backend/.env.example backend/.env     # Mac/Linux
+```
+
+Then open `backend/.env` and fill in your own values:
+```env
+EMAIL_USER=your_gmail@gmail.com
+EMAIL_PASS=your_16_char_app_password
+FRONTEND_URL=http://localhost:5173
+```
+
+> 💡 **Gmail App Password**: Enable 2FA on your Google account, then generate an App Password at [myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords)
+
+---
+
+## ▶️ Running the App
+
+You need **two terminals** open at the same time:
+
+**Terminal 1 — Backend:**
+```bash
+cd backend
+.\venv\Scripts\Activate
+uvicorn main:app --reload
+```
+Backend runs at: `http://127.0.0.1:8000`
+
+**Terminal 2 — Frontend:**
+```bash
+npm run dev
+```
+Frontend runs at: `http://localhost:5173`
+
+---
+
+## 📡 API Endpoints
+
+| Method | Route | Description |
+|---|---|---|
+| POST | `/register` | Create a new account |
+| POST | `/login` | Login and receive JWT token |
+| POST | `/forgot-password` | Send password reset email |
+| POST | `/reset-password` | Reset password using token |
+
+Swagger API docs available at: `http://127.0.0.1:8000/docs`
+
+---
+
+## 🔒 Security Notes
+
+- Passwords are hashed with **bcrypt**
+- Auth uses **JWT tokens**
+- Email credentials are stored in `.env` (never committed to git)
+- Password reset tokens expire in **30 minutes**
