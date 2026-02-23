@@ -1,87 +1,268 @@
-/* Centers everything perfectly on screen */
+/* ─── Page Background ─────────────────────────────────────────────────────── */
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
 .container {
-  display: flex;                  /* enables flexbox */
-  justify-content: center;        /* centers horizontally */
-  align-items: center;            /* centers vertically */
-  min-height: 100vh;              /* takes full screen height */
-  background-color: aqua;         /* background color */
-}
-
-/* The card-like box */
-.radius {
-  width: 350px;
-  padding: 30px;                  /* space inside the box */
-  background-color: white;        /* gives a card look */
-  border: 2px dashed black;       /* keeps your border style */
-  border-radius: 15px;            /* rounds the corners */
-  box-shadow: 0 0 15px rgba(0,0,0,0.2); /* soft shadow */
   display: flex;
-  flex-direction: column;         /* stack items vertically */
-  gap: 20px;                      /* space between sections */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
 }
 
-/* Each input row (icon + input) */
-.inputs div {
-  display: flex;                  /* keeps icon & input in one line */
-  align-items: center;            /* vertically align icon & text */
-  gap: 10px;                      /* small space between icon and input */
+/* ─── Card Wrapper ────────────────────────────────────────────────────────── */
+.login-wrapper {
+  width: 380px;
+  animation: fadeIn 0.5s ease;
 }
 
-/* Input styling */
-input {
-  flex: 1;                        /* input takes remaining space */
-  height: 35px;
-  padding: 5px 10px;
-  border: 1px solid gray;
-  border-radius: 5px;
-  font-size: 14px;
-  outline: none;                  /* removes blue outline */
-  transition: 0.2s;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* When input is focused (clicked) */
-input:focus {
-  border-color: rgb(4, 106, 165);
-  box-shadow: 0 0 4px rgba(4,106,165,0.6);
+/* ─── Header ──────────────────────────────────────────────────────────────── */
+.login-header {
+  text-align: center;
+  margin-bottom: 24px;
 }
 
-/* Icon styling */
-img {
-  width: 30px;
-  height: 30px;
+.login-header h1 {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: #f1f5f9;
+  margin: 0 0 6px;
+  background: linear-gradient(90deg, #a78bfa, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Buttons */
-/* The container for both buttons */
-.buttons {
+.login-header p {
+  color: #64748b;
+  margin: 0;
+  font-size: 0.88rem;
+}
+
+/* ─── Tabs ────────────────────────────────────────────────────────────────── */
+.login-tabs {
   display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  margin-top: 10px;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 6px;
+  margin-bottom: 20px;
 }
 
-.submit {
+.tab-btn {
   flex: 1;
+  padding: 10px;
   border: none;
-  padding: 12px 0;
-  font-weight: 600;
-  font-size: 15px;
   border-radius: 8px;
+  background: transparent;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  font-weight: 600;
   cursor: pointer;
-  color:blue;
-  transition: all 0.3s ease;
-}
-.container h1{
- 
-  position: absolute;
-  top: 210px; 
-  left: 50%;
-  transform: translateX(-50%);
-  color:silver;
-  opacity:.5;
+  transition: all 0.2s;
 }
 
-.container :hover{
-  cursor:pointer;
-  color:red;
+.tab-active {
+  background: linear-gradient(135deg, #7c3aed, #2563eb) !important;
+  color: white !important;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.4);
+}
+
+/* ─── Form Card ───────────────────────────────────────────────────────────── */
+.radius {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 28px 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* ─── Input Rows ──────────────────────────────────────────────────────────── */
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 4px 14px;
+  transition: border-color 0.2s;
+}
+
+.input-row:focus-within {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2);
+}
+
+.input-row img {
+  width: 22px;
+  height: 22px;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.input-row input {
+  flex: 1;
+  height: 42px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #f1f5f9;
+  font-size: 0.9rem;
+}
+
+.input-row input::placeholder {
+  color: #475569;
+}
+
+
+/* ─── Error Message ───────────────────────────────────────────────────────── */
+.error-msg {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #fca5a5;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.84rem;
+  animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-6px);
+  }
+
+  75% {
+    transform: translateX(6px);
+  }
+}
+
+/* ─── Submit Button ───────────────────────────────────────────────────────── */
+.submit-main {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #7c3aed, #2563eb);
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  transition: opacity 0.2s, transform 0.2s;
+  box-shadow: 0 4px 18px rgba(124, 58, 237, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+}
+
+.submit-main:hover:not(:disabled) {
+  opacity: 0.88;
+  transform: translateY(-2px);
+}
+
+.submit-main:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ─── Button Spinner ──────────────────────────────────────────────────────── */
+.btn-spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ─── Forgot Password Link ────────────────────────────────────────────────── */
+.forgot-link {
+  background: none;
+  border: none;
+  color: #a78bfa;
+  font-size: 0.82rem;
+  cursor: pointer;
+  padding: 0;
+  text-align: right;
+  width: 100%;
+  margin-top: -6px;
+  transition: color 0.2s;
+}
+
+.forgot-link:hover {
+  color: #c4b5fd;
+  text-decoration: underline;
+}
+
+/* ─── Back to Login Link ──────────────────────────────────────────────────── */
+.back-link {
+  background: none;
+  border: none;
+  color: #64748b;
+  font-size: 0.84rem;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  margin-top: 14px;
+  display: block;
+  transition: color 0.2s;
+}
+
+.back-link:hover {
+  color: #a78bfa;
+}
+
+/* ─── Reset Success Panel ─────────────────────────────────────────────────── */
+.reset-success {
+  text-align: center;
+  padding: 10px 0 20px;
+}
+
+.reset-success-icon {
+  font-size: 2.6rem;
+  margin-bottom: 10px;
+  animation: fadeIn 0.4s ease;
+}
+
+.reset-success p {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  margin: 0;
 }

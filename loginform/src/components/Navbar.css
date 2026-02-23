@@ -1,23 +1,88 @@
-.navbar{
-  background-color:#1e1e1e;
-  color:white;
-  display:flex;
+/* ─── Navbar ─────────────────────────────────────────────────────────────── */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items:center;
-  padding: 15px 40px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  position:sticky;
-  top:0;
-  z-index:1000;
-  
+  padding: 14px 32px;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
 }
-.logo{
-  font-size:1rem;
-  font-weight:bold;
-  color:#00bcd4;
-  cursor:pointer;
-  transition:color 0.3s ease;
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  cursor: pointer;
+  transition: opacity 0.2s;
 }
-.logo :hover{
-  color:red;
+
+.nav-brand:hover {
+  opacity: 0.8;
+}
+
+.nav-logo-icon {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+}
+
+.nav-logo-text {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #6b7280;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-link:hover,
+.nav-link-active {
+  color: #6366f1;
+}
+
+.nav-user {
+  font-size: 0.85rem;
+  color: #374151;
+  font-weight: 500;
+}
+
+.nav-logout,
+.nav-login-btn {
+  padding: 7px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: transparent;
+  color: #374151;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nav-logout:hover,
+.nav-login-btn:hover {
+  background: #f3f4f6;
+  border-color: #9ca3af;
 }
